@@ -243,6 +243,7 @@ class RevisionRenderer {
 
 		if ( $withHtml ) {
 			$html = '';
+			//container for a linear layout
 			$regions = [
 				"header" => "",
 				"top" => "",
@@ -256,7 +257,7 @@ class RevisionRenderer {
 				$roleHandler = $this->roleRegistery->getRoleHandler( $role );
 				$slotContent = $out->getRawText();
 
-				// TODO: put more fancy layout logic here, see T200915.
+				//fetch layout hints, set defaults.
 				$layout = $roleHandler->getOutputLayoutHints();
 				$display = $layout['display'] ?? 'section'; 
 				$region = $layout['region'] ?? 'center';
@@ -277,8 +278,8 @@ class RevisionRenderer {
 					//do nothing, e. g. for display=plain
 				}
 
-				// XXX: do we want to put a wrapper div around the output?
-				// Do we want to let $roleHandler do that?
+				// create a wrapper div for styling and positioning
+				$slotContent = Html::rawElement( 'div', [ 'id' => "mw-slot-wrapper-$role", 'class' => ['mw-slot-wrapper'] ], $slotContent );
 				if ( $placement === 'prepend') $regions[$region] = $slotContent . $regions[$region];
 				else $regions[$region] .= $slotContent; //append
 				$combinedOutput->mergeHtmlMetaDataFrom( $out );
