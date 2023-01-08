@@ -483,6 +483,7 @@ class HookRunner implements
 	\MediaWiki\ResourceLoader\Hook\ResourceLoaderJqueryMsgModuleMagicWordsHook,
 	\MediaWiki\Rest\Hook\SearchResultProvideDescriptionHook,
 	\MediaWiki\Rest\Hook\SearchResultProvideThumbnailHook,
+	\MediaWiki\Revision\Hook\BeforeRevisionRenderSlotHook,
 	\MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook,
 	\MediaWiki\Revision\Hook\RevisionInsertCompleteHook,
 	\MediaWiki\Revision\Hook\RevisionRecordInsertedHook,
@@ -1030,6 +1031,15 @@ class HookRunner implements
 		return $this->container->run(
 			'BeforeResetNotificationTimestamp',
 			[ &$userObj, &$titleObj, $force, &$oldid ]
+		);
+	}
+
+	public function onBeforeRevisionRenderSlot( &$content, $role, $hints,
+		$revisionRecord, $userObj
+	) {
+		return $this->container->run(
+			'BeforeRevisionRenderSlot',
+			[ &$content, $role, $hints, $revisionRecord, $userObj ]
 		);
 	}
 
