@@ -32,6 +32,7 @@ use Psr\Log\NullLogger;
 use Title;
 use User;
 use Wikimedia\Assert\Assert;
+use Hooks;
 
 /**
  * RenderedRevision represents the rendered representation of a revision. It acts as a lazy provider
@@ -225,6 +226,8 @@ class RenderedRevision implements SlotRenderingProvider {
 			|| ( $withHtml && !$this->slotsOutput[ $role ]->hasText() )
 		) {
 			$content = $this->revision->getContent( $role, $this->audience, $this->forUser );
+
+			Hooks::runner()->onBeforeRevisionRenderSlot( $content, $role, $hints, $this->revision, $this->forUser );
 
 			if ( !$content ) {
 				throw new SuppressedDataException(
