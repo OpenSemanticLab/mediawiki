@@ -73,7 +73,10 @@
 			"Xð",
 			"Àlex",
 			"לערי ריינהארט",
-			"아라"
+			"아라",
+			"Rbndev",
+			"Salvemm el lombard",
+			"Robertgarrigos"
 		]
 	},
 	"tog-underline": "Subratlla els enllaços:",
@@ -1029,7 +1032,7 @@
 	"nextn-title": "$1 {{PLURAL:$1|resultat|resultats}} següents",
 	"shown-title": "Mostra $1 {{PLURAL:$1|resultat|resultats}} per pàgina",
 	"viewprevnext": "Mostra ($1 {{int:pipe-separator}} $2) ($3)",
-	"searchmenu-exists": "Hi ha una pàgina anomenada «[[:$1]]» en aquest wiki.{{PLURAL:$2|0=|Vegeu també els altres resultats de cerca que s'han trobat.}}",
+	"searchmenu-exists": "Hi ha una pàgina anomenada «[[:$1]]» a {{SITENAME}}. {{PLURAL:$2|0=|Vegeu també els altres resultats de cerca que s'han trobat.}}",
 	"searchmenu-new": "Creeu la pàgina «[[:$1]]» en aquest wiki!{{PLURAL:$2|0=|Vegeu també la pàgina que ha trobat la cerca.|Vegeu també els resultats de cerca que s'han trobat.}}",
 	"searchprofile-articles": "Pàgines de contingut",
 	"searchprofile-images": "Multimèdia",
@@ -2866,7 +2869,7 @@
 	"export-addcattext": "Afegeix pàgines de la categoria:",
 	"export-addcat": "Afegeix",
 	"export-addnstext": "Afegeix pàgines de l’espai de noms:",
-	"export-addns": "Afegir",
+	"export-addns": "Afegeix",
 	"export-download": "Ofereix desar com a fitxer",
 	"export-templates": "Inclou les plantilles",
 	"export-pagelinks": "Inclou pàgines enllaçades fins a una profunditat de:",
