@@ -243,14 +243,25 @@ class RevisionRenderer {
 
 		if ( $withHtml ) {
 			$html = '';
+			// container for a linear layout
+			$regions = [
+				"header" => "",
+				"top" => "",
+				"center" => "",
+				"bottom" => "",
+				"footer" => "",
+			];
 			$first = true;
 			/** @var ParserOutput $out */
 			foreach ( $slotOutput as $role => $out ) {
 				$roleHandler = $this->roleRegistery->getRoleHandler( $role );
+				$slotContent = $out->getRawText();
 
-				// TODO: put more fancy layout logic here, see T200915.
+				// fetch layout hints, set defaults.
 				$layout = $roleHandler->getOutputLayoutHints();
-				$display = $layout['display'] ?? 'section';
+				$display = $layout['display'] ?? 'section'; 
+				$region = $layout['region'] ?? 'center';
+				$placement = $layout['placement'] ?? 'append';
 
 				if ( $display === 'none' ) {
 					continue;
@@ -259,16 +270,29 @@ class RevisionRenderer {
 				if ( $first ) {
 					// skip header for the first slot
 					$first = false;
-				} else {
+				} elseif ( $display === 'section' ) {
 					// NOTE: this placeholder is hydrated by ParserOutput::getText().
 					$headText = Html::element( 'mw:slotheader', [], $role );
-					$html .= Html::rawElement( 'h1', [ 'class' => 'mw-slot-header' ], $headText );
+					$slotContent = Html::rawElement( 'h1', [ 'class' => 'mw-slot-header' ], $headText ) . $slotContent;
+				} elseif ( $display === 'details' ) {
+					// display within semantic html elements
+					$headText = Html::element( 'mw:slotheader', [], $role );
+					$headText = Html::rawElement( 'summary', [ 'class' => 'mw-slot-details-summary' ], $headText );
+					$slotContent = Html::rawElement( 'details', [ 'class' => 'mw-slot-details' ], $headText . $slotContent );
+				} else {
+					// do nothing, e. g. for display=plain
 				}
 
-				// XXX: do we want to put a wrapper div around the output?
-				// Do we want to let $roleHandler do that?
-				$html .= $out->getRawText();
+				// create a wrapper div for styling and positioning
+				$slotContent = Html::rawElement( 'div', [ 'id' => "mw-slot-wrapper-$role", 'class' => ['mw-slot-wrapper'] ], $slotContent );
+				if ( $placement === 'prepend') $regions[$region] = $slotContent . $regions[$region];
+				else $regions[$region] .= $slotContent; // append
 				$combinedOutput->mergeHtmlMetaDataFrom( $out );
+			}
+
+			// merge regions. key order is guaranteed, see https://stackoverflow.com/questions/950975/is-the-order-of-an-associative-array-guaranteed-in-php
+			foreach ( $regions as $region => $content ) {
+				$html .= $content;
 			}
 
 			$combinedOutput->setText( $html );
