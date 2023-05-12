@@ -16,19 +16,26 @@
 --
 
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'filearchive-fa_major_mime-patch-fa_major_mime-chemical.sql', null );
+	VALUES( 'filearchive-fa_major_mime-patch-fa_major_mime-chemical.sql', null )
+	ON CONFLICT DO NOTHING;
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'image-img_major_mime-patch-img_major_mime-chemical.sql', null );
+	VALUES( 'image-img_major_mime-patch-img_major_mime-chemical.sql', null )
+	ON CONFLICT DO NOTHING;
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'oldimage-oi_major_mime-patch-oi_major_mime-chemical.sql', null );
+	VALUES( 'oldimage-oi_major_mime-patch-oi_major_mime-chemical.sql', null )
+	ON CONFLICT DO NOTHING;
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'user_groups-ug_group-patch-ug_group-length-increase-255.sql', null );
+	VALUES( 'user_groups-ug_group-patch-ug_group-length-increase-255.sql', null )
+	ON CONFLICT DO NOTHING;
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'user_former_groups-ufg_group-patch-ufg_group-length-increase-255.sql', null );
+	VALUES( 'user_former_groups-ufg_group-patch-ufg_group-length-increase-255.sql', null )
+	ON CONFLICT DO NOTHING;
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'user_properties-up_property-patch-up_property.sql', null );
+	VALUES( 'user_properties-up_property-patch-up_property.sql', null )
+	ON CONFLICT DO NOTHING;
 
 -- PostgreSQL-specific patches.
 
 INSERT INTO /*_*/updatelog (ul_key, ul_value)
-	VALUES( 'patch-textsearch_bug66650.sql', null );
+	VALUES( 'patch-textsearch_bug66650.sql', null )
+	ON CONFLICT DO NOTHING;
