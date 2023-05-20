@@ -24,6 +24,7 @@ namespace MediaWiki\Revision;
 
 use CommentStoreComment;
 use Content;
+use WikitextContent;
 use InvalidArgumentException;
 use LogicException;
 use MediaWiki\Linker\LinkTarget;
@@ -174,6 +175,27 @@ abstract class RevisionRecord {
 
 		$content = $this->getSlot( $role, $audience, $user )->getContent();
 		return $content->copy();
+
+		//if ( $content->getModel() === CONTENT_MODEL_WIKITEXT && $role == SlotRecord::MAIN ) {
+		/*if ( $content->getModel() === CONTENT_MODEL_WIKITEXT && $role == 'header') {
+			$header = "";
+			$footer = "";
+			if ($this->getPageAsLinkTarget()->getNamespace() === 14) { //Category
+				#$footer = "\n{{#invoke:Category|footer}}";
+				$header = "{{#invoke:Entity|header}}\n";
+				$footer = "\n{{#invoke:Entity|footer}}";
+			}
+			if ($this->getPageAsLinkTarget()->getNamespace() === 7000) { //Item
+				$header = "{{#invoke:Entity|header}}\n";
+				$footer = "\n{{#invoke:Entity|footer}}";
+			}
+			
+			$text = $header . $content->getText() . $footer;
+			//$text = $role . $content->getText();
+			$mod_content = new WikitextContent($text);
+			return $mod_content;
+		}
+		else return $content->copy();*/
 	}
 
 	/**
