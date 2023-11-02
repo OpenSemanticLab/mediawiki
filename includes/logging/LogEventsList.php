@@ -685,7 +685,6 @@ class LogEventsList extends ContextSource {
 
 		if ( $logBody ) {
 			if ( $msgKey[0] ) {
-				// @phan-suppress-next-line PhanParamTooFewUnpack Non-emptiness checked above
 				$msg = $context->msg( ...$msgKey );
 				if ( $page instanceof PageReference ) {
 					$msg->page( $page );

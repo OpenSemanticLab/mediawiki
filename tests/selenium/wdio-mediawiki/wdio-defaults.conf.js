@@ -138,8 +138,8 @@ exports.config = {
 	 *
 	 * @param {Object} test Mocha Test object
 	 */
-	afterTest: async function ( test ) {
-		await saveScreenshot( `${test.parent}-${test.title}` );
+	afterTest: function ( test ) {
+		saveScreenshot( `${test.parent}-${test.title}` );
 		stopVideo( ffmpeg );
 	}
 };

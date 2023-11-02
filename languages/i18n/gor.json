@@ -8,8 +8,7 @@
 			"Matma Rex",
 			"Matěj Suchánek",
 			"NoiX180",
-			"Zhoelyakin",
-			"Veracious"
+			"Zhoelyakin"
 		]
 	},
 	"tog-underline": "Garisiyi totibawa wumbuta",
@@ -962,10 +961,9 @@
 	"prefs-discussion": "Halaman lo'iya",
 	"prefs-preview": "Bilohipo",
 	"group-bot": "Bot",
-	"group-sysop": "Tā mongurusi",
-	"group-sysop-member": "{{GENDER:$1|tā mongurusi}}",
+	"group-sysop": "Pengurus",
 	"grouppage-bot": "{{ns:project}}:Bot",
-	"grouppage-sysop": "{{ns:project}}:Tā mongurusi",
+	"grouppage-sysop": "{{ns:project}}:Pengurus",
 	"right-writeapi": "Mopohuna API moluladu",
 	"newuserlogpage": "Log ta ohu'uwo bohu",
 	"rightslog": "Log haku ta ohu'uwo",

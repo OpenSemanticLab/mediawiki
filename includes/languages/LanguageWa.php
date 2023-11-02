@@ -87,6 +87,9 @@ class LanguageWa extends Language {
 	 * @return string
 	 */
 	public function timeanddate( $ts, $adj = false, $format = true, $tc = false ) {
+		if ( $adj ) {
+			$ts = $this->userAdjust( $ts, $tc );
+		}
 		$datePreference = $this->dateFormat( $format );
 		if ( $datePreference == 'ISO 8601' ) {
 			return parent::timeanddate( $ts, $adj, $format, $tc );

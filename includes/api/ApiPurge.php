@@ -181,11 +181,8 @@ class ApiPurge extends ApiBase {
 	}
 
 	protected function getExamplesMessages() {
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
-
 		return [
-			"action=purge&titles={$mp}|API"
+			'action=purge&titles=Main_Page|API'
 				=> 'apihelp-purge-example-simple',
 			'action=purge&generator=allpages&gapnamespace=0&gaplimit=10'
 				=> 'apihelp-purge-example-generator',

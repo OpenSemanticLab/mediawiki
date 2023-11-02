@@ -91,18 +91,10 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 		$this->assertArrayEquals( [ 'de' => [ 'name' => 'alemão' ] ], $response );
 	}
 
-	/**
-	 * Test ensures continuation is applied if the test runs for longer than allowed
-	 *
-	 * ApiQueryLanguageinfo::MAX_EXECUTE_SECONDS controls the speed the API has to have before
-	 * applying continuation.
-	 *
-	 * @see T329609#8613954
-	 */
 	public function testContinuationNecessary() {
 		$time = 0;
 		ConvertibleTimestamp::setFakeTime( static function () use ( &$time ) {
-			return $time += 1;
+			return $time += 0.75;
 		} );
 
 		list( $response, $continue ) = $this->doQuery( [] );
@@ -111,18 +103,10 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 		$this->assertArrayHasKey( 'licontinue', $continue );
 	}
 
-	/**
-	 * Test ensures continuation is applied if the test runs for longer than allowed
-	 *
-	 * ApiQueryLanguageinfo::MAX_EXECUTE_SECONDS controls the speed the API has to have before
-	 * applying continuation.
-	 *
-	 * @see T329609#8613954
-	 */
 	public function testContinuationNotNecessary() {
 		$time = 0;
 		ConvertibleTimestamp::setFakeTime( static function () use ( &$time ) {
-			return $time += 2;
+			return $time += 1.5;
 		} );
 
 		list( $response, $continue ) = $this->doQuery( [
@@ -135,7 +119,7 @@ class ApiQueryLanguageinfoTest extends ApiTestCase {
 	public function testContinuationInAlphabeticalOrderNotParameterOrder() {
 		$time = 0;
 		ConvertibleTimestamp::setFakeTime( static function () use ( &$time ) {
-			return $time += 1;
+			return $time += 0.75;
 		} );
 		$params = [ 'licode' => 'en|ru|zh|de|yue' ];
 

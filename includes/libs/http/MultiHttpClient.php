@@ -57,9 +57,9 @@ class MultiHttpClient implements LoggerAwareInterface {
 	private const SENSITIVE_HEADERS = '/(^|-|_)(authorization|auth|password|cookie)($|-|_)/';
 	/**
 	 * @phpcs:ignore MediaWiki.Commenting.PropertyDocumentation.ObjectTypeHintVar
-	 * @var resource|object|null curl_multi_init() handle, initialized in getCurlMulti()
+	 * @var resource|object curl_multi_init() handle
 	 */
-	protected $cmh = null;
+	protected $cmh;
 	/** @var string|null SSL certificates path */
 	protected $caBundlePath;
 	/** @var float */
@@ -785,7 +785,6 @@ class MultiHttpClient implements LoggerAwareInterface {
 	public function __destruct() {
 		if ( $this->cmh ) {
 			curl_multi_close( $this->cmh );
-			$this->cmh = null;
 		}
 	}
 }

@@ -126,7 +126,8 @@ class PostgresInstaller extends DatabaseInstaller {
 		$conn = $status->value;
 
 		// Check version
-		$status = static::meetsMinimumRequirement( $conn );
+		$version = $conn->getServerVersion();
+		$status = static::meetsMinimumRequirement( $version );
 		if ( !$status->isOK() ) {
 			return $status;
 		}
@@ -195,6 +196,7 @@ class PostgresInstaller extends DatabaseInstaller {
 			$conn = $status->value;
 			$conn->clearFlag( DBO_TRX );
 			$conn->commit( __METHOD__ );
+			// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 			$this->pgConns[$type] = $conn;
 		}
 

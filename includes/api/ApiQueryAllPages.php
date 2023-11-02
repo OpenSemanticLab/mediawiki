@@ -357,8 +357,7 @@ class ApiQueryAllPages extends ApiQueryGeneratorBase {
 					'definite',
 					'all'
 				],
-				ParamValidator::PARAM_DEFAULT => 'all',
-				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
+				ParamValidator::PARAM_DEFAULT => 'all'
 			],
 		];
 

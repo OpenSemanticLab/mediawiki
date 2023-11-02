@@ -25,8 +25,7 @@
 			"Zakiy",
 			"아라",
 			"Af420",
-			"Base",
-			"Amire80"
+			"Base"
 		]
 	},
 	"tog-underline": "Garih bawahi pautan:",
@@ -1306,7 +1305,7 @@
 	"action-editcontentmodel": "manyuntiang model konten sabuah laman",
 	"action-managechangetags": "buek jo matikan tag",
 	"action-applychangetags": "terapkan tag basamoan jo parubahan Sanak",
-	"action-changetags": "Tambah jo apuih arbitrari pado tiok-tiok revisi jo entri log",
+	"action-changetags": "Tambah jo apuih arbitrari pado tiok-tiok  revisi jo entri log",
 	"action-deletechangetags": "apuih tag dari basisdata",
 	"action-purge": "apuih singgahan laman ko",
 	"action-apihighlimits": "manggunoan bateh labiah tinggi dalam kueri API",

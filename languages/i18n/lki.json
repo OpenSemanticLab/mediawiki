@@ -18,8 +18,7 @@
 			"Miladrahimi",
 			"Mjbmr",
 			"Physicsch",
-			"Process cq",
-			"Jeeputer"
+			"Process cq"
 		]
 	},
 	"tog-underline": "خط کیشائن ژێر پیوندەل:",
@@ -2582,7 +2581,7 @@
 	"version-mediahandlers": "به‌دست‌گیرنده‌های رسانه‌ها",
 	"version-hooks": "قلاب‌ها",
 	"version-parser-extensiontags": "برچسب‌های افزونه تجزیه‌گر",
-	"version-parser-function-hooks": "قلاب‌های تابع تجزیه‌گر",
+	"version-parser-function-hooks": "قلاب‌های عملگر تجزیه‌گر",
 	"version-hook-name": "نام قلاب",
 	"version-hook-subscribedby": "وارد شده توسط",
 	"version-no-ext-name": "[بی نام]",

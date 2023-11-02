@@ -166,6 +166,7 @@ class WebRequest {
 			$path = $a['path'] ?? '';
 
 			global $wgScript;
+			// @phan-suppress-next-line PhanPossiblyUndeclaredVariable False positive
 			if ( $path == $wgScript && $want !== 'all' ) {
 				// Script inside a rewrite path?
 				// Abort to keep from breaking...
@@ -175,6 +176,7 @@ class WebRequest {
 			$router = new PathRouter;
 
 			// Raw PATH_INFO style
+			// @phan-suppress-next-line PhanPossiblyUndeclaredVariable False positive
 			$router->add( "$wgScript/$1" );
 
 			global $wgArticlePath;

@@ -92,8 +92,7 @@
 			"Чорний Кіт",
 			"아라",
 			"Пан Хаунд",
-			"1233qwer1234qwer4",
-			"Marvire"
+			"1233qwer1234qwer4"
 		]
 	},
 	"tog-underline": "Підкреслювання посилань:",
@@ -138,7 +137,7 @@
 	"tog-norollbackdiff": "Не показувати різницю версій після виконання відкоту",
 	"tog-useeditwarning": "Попереджати мене, якщо я залишаю сторінку редагування з незбереженими змінами",
 	"tog-prefershttps": "Завжди використовувати безпечне з'єднання при вході в систему",
-	"tog-showrollbackconfirmation": "Перепитувати при натисканні на посилання відкоту і показувати підтверджувальну кнопку",
+	"tog-showrollbackconfirmation": "Показати підтверджувальне вікно при натисканні на посилання відкоту",
 	"tog-requireemail": "Надсилати листи зі скиданням пароля, лише якщо вказані й адреса електронної пошти, й ім'я користувача.",
 	"underline-always": "Завжди",
 	"underline-never": "Ніколи",
@@ -2185,7 +2184,7 @@
 	"apisandbox-dynamic-parameters-add-label": "Додати параметр:",
 	"apisandbox-dynamic-parameters-add-placeholder": "Назва параметра",
 	"apisandbox-dynamic-error-exists": "Параметр з назвою «$1» вже існує.",
-	"apisandbox-templated-parameter-reason": "Цей [[Special:ApiHelp/main#main/templatedparams|шаблонний параметр]] запропонований на основі {{PLURAL:$1|значення|значень}} з $2.",
+	"apisandbox-templated-parameter-reason": "Цей [[Special:ApiHelp/main#main/templatedparams|шаблонний параметр]] запропонований на основі  {{PLURAL:$1|значення|значень}} з $2.",
 	"apisandbox-deprecated-parameters": "Застарілі параметри",
 	"apisandbox-fetch-token": "Автозаповнення токена",
 	"apisandbox-add-multi": "Додати",
@@ -2675,7 +2674,7 @@
 	"ipbother": "Інший термін",
 	"ipboptions": "2 години:2 hours,1 день:1 day,3 дні:3 days,1 тиждень:1 week,2 тижні:2 weeks,1 місяць:1 month,3 місяці:3 months,6 місяців:6 months,1 рік:1 year,назавжди:infinite",
 	"ipbhidename": "Приховати ім'я користувача у редагуваннях та списках",
-	"ipbwatchuser": "Додати до списку спостереження сторінку користувача і його сторінку обговорення",
+	"ipbwatchuser": "Додати до списку спостереження сторінку користувача і його обговорення",
 	"ipb-disableusertalk": "Редагування власної сторінки обговорення",
 	"ipb-change-block": "Переблокувати користувача з цими налаштуваннями",
 	"ipb-confirm": "Підтвердити блокування",

@@ -457,7 +457,6 @@ class ApiQueryBacklinksprop extends ApiQueryGeneratorBase {
 			$ret['show'] = [
 				ParamValidator::PARAM_TYPE => $show,
 				ParamValidator::PARAM_ISMULTI => true,
-				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			];
 		} else {
 			unset( $ret['show'] );
@@ -470,7 +469,7 @@ class ApiQueryBacklinksprop extends ApiQueryGeneratorBase {
 		$settings = self::$settings[$this->getModuleName()];
 		$name = $this->getModuleName();
 		$path = $this->getModulePath();
-		$title = $settings['exampletitle'] ?? Title::newMainPage()->getPrefixedText();
+		$title = $settings['exampletitle'] ?? 'Main Page';
 		$etitle = rawurlencode( $title );
 
 		return [

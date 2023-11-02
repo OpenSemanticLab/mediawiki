@@ -144,7 +144,7 @@ class RightsLogFormatter extends LogFormatter {
 					$expiryFormatted, $expiryFormattedD, $expiryFormattedT )->parse();
 			} else {
 				// the right does not expire; just insert the group name
-				$permList[] = htmlspecialchars( $group );
+				$permList[] = $group;
 			}
 
 			next( $groups );

@@ -886,13 +886,10 @@ class ApiQueryInfo extends ApiQueryBase {
 	}
 
 	protected function getExamplesMessages() {
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
-
 		return [
-			"action=query&prop=info&titles={$mp}"
+			'action=query&prop=info&titles=Main%20Page'
 				=> 'apihelp-query+info-example-simple',
-			"action=query&prop=info&inprop=protection&titles={$mp}"
+			'action=query&prop=info&inprop=protection&titles=Main%20Page'
 				=> 'apihelp-query+info-example-protection',
 		];
 	}

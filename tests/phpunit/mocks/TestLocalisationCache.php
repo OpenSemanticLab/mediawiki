@@ -17,8 +17,6 @@ class TestLocalisationCache extends LocalisationCache {
 	 */
 	private static $testingCache = [];
 
-	private const PROPERTY_NAMES = [ 'data', 'sourceLanguage' ];
-
 	private $selfAccess;
 
 	public function __construct() {
@@ -63,14 +61,12 @@ class TestLocalisationCache extends LocalisationCache {
 			self::hashiblifyArray( Hooks::getHandlers( 'LocalisationCacheRecache' ) ),
 		] ) );
 		if ( isset( self::$testingCache[$cacheKey] ) ) {
-			foreach ( self::PROPERTY_NAMES as $prop ) {
-				$this->$prop[$code] = self::$testingCache[$cacheKey][$prop];
-			}
-			$loadedItems = $this->selfAccess->loadedItems;
-			foreach ( self::$testingCache[$cacheKey]['data'] as $key => $item ) {
+			$this->data[$code] = self::$testingCache[$cacheKey];
+			foreach ( self::$testingCache[$cacheKey] as $key => $item ) {
+				$loadedItems = $this->selfAccess->loadedItems;
 				$loadedItems[$code][$key] = true;
+				$this->selfAccess->loadedItems = $loadedItems;
 			}
-			$this->selfAccess->loadedItems = $loadedItems;
 			return;
 		}
 
@@ -81,11 +77,7 @@ class TestLocalisationCache extends LocalisationCache {
 			// they're kept around for the whole test duration
 			array_pop( self::$testingCache );
 		}
-		$cache = [];
-		foreach ( self::PROPERTY_NAMES as $prop ) {
-			$cache[$prop] = $this->$prop[$code];
-		}
 		// Put the new one in front
-		self::$testingCache = array_merge( [ $cacheKey => $cache ], self::$testingCache );
+		self::$testingCache = array_merge( [ $cacheKey => $this->data[$code] ], self::$testingCache );
 	}
 }

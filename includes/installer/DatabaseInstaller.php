@@ -78,12 +78,11 @@ abstract class DatabaseInstaller {
 	/**
 	 * Whether the provided version meets the necessary requirements for this type
 	 *
-	 * @param IDatabase $conn
+	 * @param string $serverVersion Output of Database::getServerVersion()
 	 * @return Status
 	 * @since 1.30
 	 */
-	public static function meetsMinimumRequirement( IDatabase $conn ) {
-		$serverVersion = $conn->getServerVersion();
+	public static function meetsMinimumRequirement( $serverVersion ) {
 		if ( version_compare( $serverVersion, static::$minimumVersion ) < 0 ) {
 			return Status::newFatal(
 				static::$notMinimumVersionMessage, static::$minimumVersion, $serverVersion
@@ -230,6 +229,7 @@ abstract class DatabaseInstaller {
 		$this->db->setFlag( DBO_DDLMODE );
 		$this->db->begin( __METHOD__ );
 
+		// @phan-suppress-next-line SecurityCheck-PathTraversal False positive
 		$error = $this->db->sourceFile(
 			call_user_func( [ $this, $sourceFileMethod ], $this->db )
 		);

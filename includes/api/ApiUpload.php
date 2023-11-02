@@ -414,6 +414,7 @@ class ApiUpload extends ApiBase {
 	 * @return never
 	 */
 	private function dieRecoverableError( $errors, $parameter = null ) {
+		// @phan-suppress-previous-line PhanTypeMissingReturn
 		$this->performStash( 'optional', $data );
 
 		if ( $parameter ) {
@@ -440,6 +441,7 @@ class ApiUpload extends ApiBase {
 	 * @return never
 	 */
 	public function dieStatusWithCode( $status, $overrideCode, $moreExtraData = null ) {
+		// @phan-suppress-previous-line PhanTypeMissingReturn
 		$sv = StatusValue::newGood();
 		foreach ( $status->getErrors() as $error ) {
 			$msg = ApiMessage::create( $error, $overrideCode );
@@ -652,6 +654,7 @@ class ApiUpload extends ApiBase {
 	 * @return never
 	 */
 	protected function checkVerification( array $verification ) {
+		// @phan-suppress-previous-line PhanTypeMissingReturn
 		switch ( $verification['status'] ) {
 			// Recoverable errors
 			case UploadBase::MIN_LENGTH_PARTNAME:

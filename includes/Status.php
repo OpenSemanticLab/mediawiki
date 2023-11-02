@@ -351,7 +351,6 @@ class Status extends StatusValue {
 	 *
 	 * @return array[] A list in which each entry is an array with a message key as its first element.
 	 *         The remaining array elements are the message parameters.
-	 * @phan-return non-empty-array[]
 	 * @deprecated since 1.25
 	 */
 	public function getErrorsArray() {
@@ -363,7 +362,6 @@ class Status extends StatusValue {
 	 *
 	 * @return array[] A list in which each entry is an array with a message key as its first element.
 	 *         The remaining array elements are the message parameters.
-	 * @phan-return non-empty-array[]
 	 * @deprecated since 1.25
 	 */
 	public function getWarningsArray() {

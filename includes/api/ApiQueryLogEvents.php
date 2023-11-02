@@ -481,10 +481,6 @@ class ApiQueryLogEvents extends ApiQueryBase {
 					'older'
 				],
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-direction',
-				ApiBase::PARAM_HELP_MSG_PER_VALUE => [
-					'newer' => 'api-help-paramvalue-direction-newer',
-					'older' => 'api-help-paramvalue-direction-older',
-				],
 			],
 			'user' => [
 				ParamValidator::PARAM_TYPE => 'user',

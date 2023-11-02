@@ -2080,8 +2080,7 @@ return [
 			$services->getDBLoadBalancer(),
 			LoggerFactory::getInstance( 'UserOptionsManager' ),
 			$services->getHookContainer(),
-			$services->getUserFactory(),
-			$services->getContentLanguage()
+			$services->getUserFactory()
 		);
 	},
 

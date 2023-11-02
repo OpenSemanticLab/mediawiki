@@ -173,11 +173,8 @@ class ApiQueryExternalLinks extends ApiQueryBase {
 	}
 
 	protected function getExamplesMessages() {
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
-
 		return [
-			"action=query&prop=extlinks&titles={$mp}"
+			'action=query&prop=extlinks&titles=Main%20Page'
 				=> 'apihelp-query+extlinks-example-simple',
 		];
 	}

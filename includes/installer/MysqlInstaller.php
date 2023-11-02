@@ -25,7 +25,6 @@ use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\DBConnectionError;
 use Wikimedia\Rdbms\DBQueryError;
-use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Class for setting up the MediaWiki database using MySQL.
@@ -52,12 +51,8 @@ class MysqlInstaller extends DatabaseInstaller {
 
 	public $supportedEngines = [ 'InnoDB' ];
 
-	private const MIN_VERSIONS = [
-		'MySQL' => '5.7.0',
-		'MariaDB' => '10.3',
-	];
-	public static $minimumVersion;
-	protected static $notMinimumVersionMessage;
+	public static $minimumVersion = '5.7.0';
+	protected static $notMinimumVersionMessage = 'config-mysql-old';
 
 	public $webUserPrivs = [
 		'DELETE',
@@ -140,15 +135,7 @@ class MysqlInstaller extends DatabaseInstaller {
 		'@phan-var Database $conn';
 
 		// Check version
-		return static::meetsMinimumRequirement( $conn );
-	}
-
-	public static function meetsMinimumRequirement( IDatabase $conn ) {
-		$type = str_contains( $conn->getSoftwareLink(), 'MariaDB' ) ? 'MariaDB' : 'MySQL';
-		self::$minimumVersion = self::MIN_VERSIONS[$type];
-		// Used messages: config-mysql-old, config-mariadb-old
-		self::$notMinimumVersionMessage = 'config-' . strtolower( $type ) . '-old';
-		return parent::meetsMinimumRequirement( $conn );
+		return static::meetsMinimumRequirement( $conn->getServerVersion() );
 	}
 
 	/**

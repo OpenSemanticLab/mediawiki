@@ -64,7 +64,7 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
  * @note User implements Authority to ease transition. Always prefer
  * using existing Authority or obtaining a proper Authority implementation.
  *
- * @note {@}newable in 1.35 only, the constructor is {@}internal since 1.36
+ * @newable in 1.35 only, the constructor is @internal since 1.36
  */
 #[AllowDynamicProperties]
 class User implements Authority, UserIdentity, UserEmailContact {
@@ -871,7 +871,6 @@ class User implements Authority, UserIdentity, UserEmailContact {
 
 		if ( !$row ) {
 			// No user. Create it?
-			// @phan-suppress-next-line PhanImpossibleCondition
 			if ( !$options['create'] ) {
 				// No.
 				return null;
@@ -888,7 +887,6 @@ class User implements Authority, UserIdentity, UserEmailContact {
 
 		if ( !$user->isSystemUser() ) {
 			// User exists. Steal it?
-			// @phan-suppress-next-line PhanRedundantCondition
 			if ( !$options['steal'] ) {
 				return null;
 			}

@@ -275,15 +275,12 @@ class ApiSetNotificationTimestamp extends ApiBase {
 	}
 
 	protected function getExamplesMessages() {
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
-
 		return [
 			'action=setnotificationtimestamp&entirewatchlist=&token=123ABC'
 				=> 'apihelp-setnotificationtimestamp-example-all',
-			"action=setnotificationtimestamp&titles={$mp}&token=123ABC"
+			'action=setnotificationtimestamp&titles=Main_page&token=123ABC'
 				=> 'apihelp-setnotificationtimestamp-example-page',
-			"action=setnotificationtimestamp&titles={$mp}&" .
+			'action=setnotificationtimestamp&titles=Main_page&' .
 				'timestamp=2012-01-01T00:00:00Z&token=123ABC'
 				=> 'apihelp-setnotificationtimestamp-example-pagetimestamp',
 			'action=setnotificationtimestamp&generator=allpages&gapnamespace=2&token=123ABC'

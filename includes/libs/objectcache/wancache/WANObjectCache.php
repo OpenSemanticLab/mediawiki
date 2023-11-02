@@ -2321,7 +2321,6 @@ class WANObjectCache implements
 	 * @since 1.27
 	 */
 	public function makeGlobalKey( $collection, ...$components ) {
-		// @phan-suppress-next-line PhanParamTooFewUnpack Should infer non-emptiness
 		return $this->cache->makeGlobalKey( ...func_get_args() );
 	}
 
@@ -2336,7 +2335,6 @@ class WANObjectCache implements
 	 * @since 1.27
 	 */
 	public function makeKey( $collection, ...$components ) {
-		// @phan-suppress-next-line PhanParamTooFewUnpack Should infer non-emptiness
 		return $this->cache->makeKey( ...func_get_args() );
 	}
 

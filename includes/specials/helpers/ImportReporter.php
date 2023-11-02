@@ -69,13 +69,13 @@ class ImportReporter extends ContextSource {
 		$this->getOutput()->addHTML( "<ul>\n" );
 	}
 
-	public function reportNotice( $msg, array $params ) {
+	private function reportNotice( $msg, array $params ) {
 		$this->getOutput()->addHTML(
 			Html::element( 'li', [], $this->msg( $msg, $params )->text() )
 		);
 	}
 
-	public function reportLogItem( ...$args ) {
+	private function reportLogItem( ...$args ) {
 		$this->mLogItemCount++;
 		if ( is_callable( $this->mOriginalLogCallback ) ) {
 			call_user_func_array( $this->mOriginalLogCallback, $args );

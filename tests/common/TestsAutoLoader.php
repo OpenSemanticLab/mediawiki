@@ -215,8 +215,6 @@ $wgAutoloadClasses += [
 		=> "$testDir/phpunit/mocks/MockServiceDependenciesTrait.php",
 	'MediaWiki\\Tests\\Unit\\DummyServicesTrait'
 		=> "$testDir/phpunit/mocks/DummyServicesTrait.php",
-	'MediaWiki\\Tests\\Unit\\FakeQqxMessageLocalizer'
-		=> "$testDir/phpunit/mocks/FakeQqxMessageLocalizer.php",
 	'MediaWiki\\Session\\DummySessionBackend'
 		=> "$testDir/phpunit/mocks/session/DummySessionBackend.php",
 	'DummySessionProvider' => "$testDir/phpunit/mocks/session/DummySessionProvider.php",

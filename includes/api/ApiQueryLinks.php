@@ -259,15 +259,13 @@ class ApiQueryLinks extends ApiQueryGeneratorBase {
 	protected function getExamplesMessages() {
 		$name = $this->getModuleName();
 		$path = $this->getModulePath();
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
 
 		return [
-			"action=query&prop={$name}&titles={$mp}"
+			"action=query&prop={$name}&titles=Main%20Page"
 				=> "apihelp-{$path}-example-simple",
-			"action=query&generator={$name}&titles={$mp}&prop=info"
+			"action=query&generator={$name}&titles=Main%20Page&prop=info"
 				=> "apihelp-{$path}-example-generator",
-			"action=query&prop={$name}&titles={$mp}&{$this->prefix}namespace=2|10"
+			"action=query&prop={$name}&titles=Main%20Page&{$this->prefix}namespace=2|10"
 				=> "apihelp-{$path}-example-namespaces",
 		];
 	}

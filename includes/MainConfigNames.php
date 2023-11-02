@@ -2709,12 +2709,6 @@ class MainConfigNames {
 	public const GroupPermissions = 'GroupPermissions';
 
 	/**
-	 * Name constant for the PrivilegedGroups setting, for use with Config::get()
-	 * @see MainConfigSchema::PrivilegedGroups
-	 */
-	public const PrivilegedGroups = 'PrivilegedGroups';
-
-	/**
 	 * Name constant for the RevokePermissions setting, for use with Config::get()
 	 * @see MainConfigSchema::RevokePermissions
 	 */

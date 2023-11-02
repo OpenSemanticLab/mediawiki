@@ -600,6 +600,7 @@ class MimeAnalyzer implements LoggerAwareInterface {
 			if ( str_starts_with( $head, $magic ) ) {
 				$this->logger->info( __METHOD__ .
 					": magic header in $file recognized as $candidate" );
+				// @phan-suppress-next-line PhanTypeMismatchReturn False positive
 				return $candidate;
 			}
 		}

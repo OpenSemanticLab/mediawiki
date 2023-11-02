@@ -81,18 +81,8 @@ class UpdateMediaWiki extends Maintenance {
 		}
 	}
 
-	public function setup() {
-		global $wgMessagesDirs;
-
-		parent::setup();
-
-		// T206765: We need to load the installer i18n files as some of errors come installer/updater code
-		// T310378: We have to ensure we do this before execute()
-		$wgMessagesDirs['MediawikiInstaller'] = dirname( __DIR__ ) . '/includes/installer/i18n';
-	}
-
 	public function execute() {
-		global $wgLang, $wgAllowSchemaUpdates;
+		global $wgLang, $wgAllowSchemaUpdates, $wgMessagesDirs;
 
 		if ( !$wgAllowSchemaUpdates
 			&& !( $this->hasOption( 'force' )
@@ -122,6 +112,9 @@ class UpdateMediaWiki extends Maintenance {
 		if ( !$this->hasOption( 'skip-config-validation' ) ) {
 			$this->validateSettings();
 		}
+
+		// T206765: We need to load the installer i18n files as some of errors come installer/updater code
+		$wgMessagesDirs['MediawikiInstaller'] = dirname( __DIR__ ) . '/includes/installer/i18n';
 
 		$lang = MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage( 'en' );
 		// Set global language to ensure localised errors are in English (T22633)
@@ -160,7 +153,7 @@ class UpdateMediaWiki extends Maintenance {
 		# Check to see whether the database server meets the minimum requirements
 		/** @var DatabaseInstaller $dbInstallerClass */
 		$dbInstallerClass = Installer::getDBInstallerClass( $db->getType() );
-		$status = $dbInstallerClass::meetsMinimumRequirement( $db );
+		$status = $dbInstallerClass::meetsMinimumRequirement( $db->getServerVersion() );
 		if ( !$status->isOK() ) {
 			// This might output some wikitext like <strong> but it should be comprehensible
 			$text = $status->getWikiText();

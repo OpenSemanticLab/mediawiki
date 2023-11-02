@@ -298,11 +298,8 @@ class ApiQueryContributors extends ApiQueryBase {
 	}
 
 	protected function getExamplesMessages() {
-		$title = Title::newMainPage()->getPrefixedText();
-		$mp = rawurlencode( $title );
-
 		return [
-			"action=query&prop=contributors&titles={$mp}"
+			'action=query&prop=contributors&titles=Main_Page'
 				=> 'apihelp-query+contributors-example-simple',
 		];
 	}
